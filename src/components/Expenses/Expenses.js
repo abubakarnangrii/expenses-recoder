@@ -14,11 +14,12 @@ export default function Expenses(props) {
         return expense.date.getFullYear().toString() ===filterYear;
     })
 
+    let expenseContent = <p>No expenses found.</p> ;
     return (
         <div className='expenses'>
             <ExpenseFilter selected={filterYear} onChangeFilter={filterChangeHandler} />
 
-            {filterExpenses.length === 0 ? <p>No expenses found.</p> :filterExpenses.map((expense) =>
+            {filterExpenses.length === 0 ? expenseContent :filterExpenses.map((expense) =>
                 <ExpenseItem 
                     key={expense.id}
                     date={expense.date} 
