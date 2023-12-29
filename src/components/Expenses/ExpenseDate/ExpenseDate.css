@@ -1,0 +1,32 @@
+.date{
+    gap:1rem;
+    width: 110px;
+    border: 2px solid black;
+    height: 100px;
+    text-align: center;
+    display: block;
+    justify-content: center;
+    align-items: center;
+    margin: 20px;
+    background-color: gray;
+    border-radius: 10px;
+    color: white;
+}
+.month{
+    font-size: 18px;
+    font-weight: 500;
+    padding: 6px 0px 3px 0px;
+    
+}
+.year {
+    font-size: 16px;
+    font-weight: 300;
+    color: #ffffffca;
+}
+
+.day {
+    font-size: 22px;
+    font-weight: 800;
+    color: #ffffff;
+    padding-top: 6px;
+}
