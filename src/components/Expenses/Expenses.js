@@ -10,23 +10,26 @@ export default function Expenses(props) {
         setFilterYear(selectedYear);
     }
 
-    const filterExpenses = props.item.filter(expense =>{
-        return expense.date.getFullYear().toString() ===filterYear;
+    const filterExpenses = props.item.filter(expense => {
+        return expense.date.getFullYear().toString() === filterYear;
     })
 
-    let expenseContent = <p>No expenses found.</p> ;
+    let expenseContent = <p>No expenses found.</p>;
+
+    if (filterExpenses.length > 0) {
+       expenseContent = filterExpenses.map((expense) =>
+            <ExpenseItem
+                key={expense.id}
+                date={expense.date}
+                title={expense.title}
+                price={expense.price}
+            />
+        )
+    }
     return (
         <div className='expenses'>
             <ExpenseFilter selected={filterYear} onChangeFilter={filterChangeHandler} />
-
-            {filterExpenses.length === 0 ? expenseContent :filterExpenses.map((expense) =>
-                <ExpenseItem 
-                    key={expense.id}
-                    date={expense.date} 
-                    title={expense.title} 
-                    price={expense.price}/>
-                )
-            }  
+            {expenseContent}
             {/* <ExpenseItem date={props.item[0].date} title={props.item[0].title} price={props.item[0].price} />
             <ExpenseItem date={props.item[1].date} title={props.item[1].title} price={props.item[1].price} />
             <ExpenseItem date={props.item[2].date} title={props.item[2].title} price={props.item[2].price} />
