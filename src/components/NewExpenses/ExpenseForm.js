@@ -36,7 +36,7 @@ export default function ExpenseForm(props) {
 
     const submitHandler = (event) => {
         event.preventDefault();
-
+        if (enterDate != '' && enterTitle != '' && enterAmount != ''){
         const expenseData = {
             date: new Date(enterDate),
             title: enterTitle,
@@ -46,7 +46,9 @@ export default function ExpenseForm(props) {
         setEnterTitle('');
         setEnterAmount('');
         setEnterDate('');
-       
+    }else{
+        alert("Please! Enter the data");
+    }
     }
     return (
         <form onSubmit={submitHandler}>
@@ -64,8 +66,9 @@ export default function ExpenseForm(props) {
                     <input type='date' value={enterDate} min="2019-01-01" max="2022-12-31" onChange={dateChangeHandler}/>
                 </div>
             </div>
+            {}
             <div className='new-expense__actions'>
-                <button type='submit'>Add Expense</button>
+                <button type='submit' >Add Expense</button>
             </div>
         </form>
     )

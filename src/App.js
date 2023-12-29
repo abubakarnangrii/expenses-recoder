@@ -6,26 +6,26 @@ import React,{useState} from 'react';
 
 const INITIAL_EXPENSE = [
   {
-    id: 'e1',
-    date: new Date(2023, 8, 27),
+    id: '0.3453',
+    date: new Date(2022, 8, 27),
     title: "Car Payment",
     price: "$242.56",
   },
   {
-    id: 'e2',
-    date: new Date(2023, 2, 2),
+    id: '0.3154',
+    date: new Date(2022, 2, 2),
     title: "Phone Payment",
     price: "$298.56",
   },
   {
-    id: 'e3',
-    date: new Date(2023, 12, 28),
+    id: '0.7623',
+    date: new Date(2021, 12, 28),
     title: "Food",
     price: "$120.56",
   },
   {
-    id: 'e4',
-    date: new Date(2023, 5, 12),
+    id: '0.2565',
+    date: new Date(2020, 5, 12),
     title: "Cloths",
     price: "$261.56",
   },
