@@ -36,7 +36,6 @@ export default function ExpenseForm(props) {
 
     const submitHandler = (event) => {
         event.preventDefault();
-        if (enterDate != '' && enterTitle != '' && enterAmount != ''){
         const expenseData = {
             date: new Date(enterDate),
             title: enterTitle,
@@ -46,28 +45,25 @@ export default function ExpenseForm(props) {
         setEnterTitle('');
         setEnterAmount('');
         setEnterDate('');
-    }else{
-        alert("Please! Enter the data");
-    }
     }
     return (
         <form onSubmit={submitHandler}>
             <div className='new-expense__controls'>
                 <div className='new-expense__control'>
                     <label>Title</label>
-                    <input type='text' value={enterTitle} onChange={titleChangeHandler}/>
+                    <input type='text' value={enterTitle} onChange={titleChangeHandler} required/>
                 </div>
                 <div className='new-expense__control'>
                     <label>Amount</label>
-                    <input type='number' value={enterAmount} min={0.01} step={0.01} onChange={amountChangeHandler}/>
+                    <input type='number' value={enterAmount} min={0.01} step={0.01} onChange={amountChangeHandler} required />
                 </div>
                 <div className='new-expense__control'>
                     <label>Date</label>
-                    <input type='date' value={enterDate} min="2019-01-01" max="2022-12-31" onChange={dateChangeHandler}/>
+                    <input type='date' value={enterDate} min="2019-01-01" max="2022-12-31" onChange={dateChangeHandler} required />
                 </div>
             </div>
-            {}
             <div className='new-expense__actions'>
+                <button type="button" onClick={props.onCancel}>Cancel</button>
                 <button type='submit' >Add Expense</button>
             </div>
         </form>

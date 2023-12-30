@@ -1,7 +1,8 @@
 import React, { useState } from 'react'
-import ExpenseItem from './ExpenseItem/ExpenseItem'
 import './Expenses.css'
 import ExpenseFilter from './ExpenseFilter/ExpenseFilter'
+import ExpenseList from './ExpensesList/ExpenseList';
+import ExpensesChart from './ExpensesChart';
 
 export default function Expenses(props) {
     const [filterYear, setFilterYear] = useState('2020');
@@ -14,26 +15,11 @@ export default function Expenses(props) {
         return expense.date.getFullYear().toString() === filterYear;
     })
 
-    let expenseContent = <p>No expenses found.</p>;
-
-    if (filterExpenses.length > 0) {
-       expenseContent = filterExpenses.map((expense) =>
-            <ExpenseItem
-                key={expense.id}
-                date={expense.date}
-                title={expense.title}
-                price={expense.price}
-            />
-        )
-    }
     return (
         <div className='expenses'>
             <ExpenseFilter selected={filterYear} onChangeFilter={filterChangeHandler} />
-            {expenseContent}
-            {/* <ExpenseItem date={props.item[0].date} title={props.item[0].title} price={props.item[0].price} />
-            <ExpenseItem date={props.item[1].date} title={props.item[1].title} price={props.item[1].price} />
-            <ExpenseItem date={props.item[2].date} title={props.item[2].title} price={props.item[2].price} />
-            <ExpenseItem date={props.item[3].date} title={props.item[3].title} price={props.item[3].price} /> */}
+            <ExpensesChart expenses={filterExpenses}/>
+            <ExpenseList item={filterExpenses}/>
         </div>
     )
 }

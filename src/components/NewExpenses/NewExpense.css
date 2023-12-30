@@ -6,3 +6,9 @@
     margin: 20px 20px;
     border-radius: 10px;
 }
+.add-new__expenses {
+    display: flex;
+    margin: 30px 70px 30px auto;
+    width: auto;
+    padding: 18px;
+}

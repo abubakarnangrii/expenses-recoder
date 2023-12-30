@@ -44,7 +44,7 @@ const [expensesData,setExpenses] = useState(INITIAL_EXPENSE);
   };
   return (
     <div>
-      <h1 className='Expense-item-title'>Expense Item</h1>
+      <h1 className='expense-item-title'>Expense Item</h1>
       <NewExpense onAddExpense={addExpenseHandler} />
       <div className="App">
         <Expenses item={expensesData} />
