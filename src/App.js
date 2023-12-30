@@ -55,8 +55,6 @@ const [expensesData,setExpenses] = useState(INITIAL_EXPENSE);
 
   const addExpenseHandler = (expense) => {
       setExpenses((prevExpenses)=>{
-        console.log(expense);
-        console.log(prevExpenses);
         return [expense,...prevExpenses];
       });
   };
